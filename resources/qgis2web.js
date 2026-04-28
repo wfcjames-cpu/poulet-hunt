@@ -151,7 +151,7 @@ var featureOverlay = new ol.layer.Vector({
 });
 
 var doHighlight = false;
-var doHover = true;
+var doHover = false;
 
 function createPopupField(currentFeature, currentFeatureKeys, layer) {
     var popupText = '';
@@ -400,6 +400,8 @@ function onSingleClickFeatures(evt) {
                 }
             }
         }
+	}, {
+        hitTolerance: 10 // This is the crucial addition for mobile/touch
     });
     if (popupText === '<ul>') {
         popupText = '';
